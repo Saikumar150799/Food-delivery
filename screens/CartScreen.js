@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import React from "react";
 import { COLORS } from "../theme";
-import { dishes } from "../data";
 import CartItemCard from "../components/CartItemCard";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -17,7 +16,6 @@ import { useCartStore } from "../store";
 import { useEffect } from "react";
 
 const CartScreen = () => {
-  
   const navigation = useNavigation();
 
   const cart = useCartStore((state) => state.cart);

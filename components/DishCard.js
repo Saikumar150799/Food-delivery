@@ -12,16 +12,15 @@ import { COLORS } from "../theme";
 import { useCartStore } from "../store";
 
 const DishCard = ({ dish }) => {
-  const {addToCart, removeFromCart} = useCartStore((state) => state);
+  
+  const { addToCart, removeFromCart } = useCartStore((state) => state);
 
-  const quantity = useCartStore((state) => state.cart.find((item) => item.id === dish.id)?.quantity || 0);
+  const quantity = useCartStore((state) => state.cart.find((item) => item.id === dish.id)?.quantity || 0
+  );
 
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={dish.image}
-      />
+      <Image style={styles.image} source={dish.image} />
       <View style={styles.card}>
         <View>
           <Text style={styles.dishName}>{dish.name}</Text>
@@ -30,12 +29,18 @@ const DishCard = ({ dish }) => {
         <View style={styles.quantityContainer}>
           <Text style={styles.price}>${dish.price}</Text>
           <View style={styles.buttons}>
-            
-            <TouchableOpacity style={styles.button} onPress={()=>addToCart(dish)}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => addToCart(dish)}
+            >
               <Entypo name="plus" size={20} color="white" />
             </TouchableOpacity>
             <Text style={styles.quantity}>{quantity}</Text>
-            <TouchableOpacity style={styles.button} onPress={()=>removeFromCart(dish.id)} disabled={quantity <= 0}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => removeFromCart(dish.id)}
+              disabled={quantity <= 0}
+            >
               <Entypo name="minus" size={20} color="white" />
             </TouchableOpacity>
           </View>
@@ -89,7 +94,7 @@ const styles = StyleSheet.create({
   quantity: {
     fontSize: 16,
     fontWeight: "bold",
-    marginHorizontal: 5
+    marginHorizontal: 5,
   },
   card: {
     flex: 1,
@@ -106,5 +111,5 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 17,
     fontWeight: "bold",
-  }
+  },
 });

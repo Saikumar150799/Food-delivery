@@ -1,10 +1,20 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import { restaurants } from "../data";
 import { COLORS } from "../theme";
 import { useState } from "react";
+
 const Restaurant = () => {
+
   const [active, setActive] = useState(null);
+  
   return (
     <ScrollView
       horizontal
@@ -12,14 +22,27 @@ const Restaurant = () => {
       style={{ paddingHorizontal: 15, marginTop: 20 }}
     >
       {restaurants.map((restaurant, index) => (
-        <TouchableOpacity  key={index}  onPress={()=>setActive(restaurant.id)}>
-
-        <View style={styles.container}>
-          <View style={[ restaurant.id === active ? styles.activeRestaurant: styles.restaurant]}>
-            <Image style={styles.image} source={restaurant.image} />
+        <TouchableOpacity key={index} onPress={() => setActive(restaurant.id)}>
+          <View style={styles.container}>
+            <View
+              style={[
+                restaurant.id === active
+                  ? styles.activeRestaurant
+                  : styles.restaurant,
+              ]}
+            >
+              <Image style={styles.image} source={restaurant.image} />
+            </View>
+            <Text
+              style={[
+                restaurant.id === active
+                  ? styles.activeRestaurantName
+                  : styles.restaurantName,
+              ]}
+            >
+              {restaurant.name}
+            </Text>
           </View>
-          <Text style={[ restaurant.id === active ? styles.activeRestaurantName: styles.restaurantName]}>{restaurant.name}</Text>
-        </View>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -60,5 +83,5 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     marginTop: 6,
     color: COLORS.secondaryGreyHex,
-  }
+  },
 });

@@ -21,14 +21,21 @@ import { useCartStore } from "../store";
 import { useEffect } from "react";
 import Animated, { useSharedValue, withTiming } from "react-native-reanimated";
 const FeaturedDeatils = () => {
+
   const navigation = useNavigation();
+
   const { params } = useRoute();
 
   const item = params;
+
   const viewCartBtnWidth = useSharedValue(0);
+
   const cart = useCartStore((state) => state.cart);
+
   const cartLength = useCartStore((state) => state.cartLength());
+
   const cartTotal = useCartStore((state) => state.cartTotal());
+  
   const clearCart = useCartStore((state) => state.clearCart);
 
   useEffect(() => {

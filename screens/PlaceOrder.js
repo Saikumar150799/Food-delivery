@@ -2,9 +2,10 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { COLORS } from "../theme";
 import { useNavigation } from "@react-navigation/native";
-import { useEffect } from "react"
+import { useEffect } from "react";
 
 const PlaceOrder = () => {
+  
   const navigation = useNavigation();
 
   useEffect(() => {

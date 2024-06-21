@@ -3,13 +3,10 @@ import React from "react";
 import { Entypo } from "@expo/vector-icons";
 import { COLORS } from "../theme";
 import { useCartStore } from "../store";
-import { useNavigation } from "@react-navigation/native";
-import { useEffect } from "react";
 
 const CartItemCard = ({ item }) => {
-  const navigation = useNavigation();
+  
   const removeFromCart = useCartStore((state) => state.removeFromCart);
-  const cartTotal = useCartStore((state) => state.cartTotal());
 
   return (
     <View style={styles.container}>
@@ -20,9 +17,12 @@ const CartItemCard = ({ item }) => {
       </View>
       <View style={styles.flex}>
         <Text style={styles.price}>${item.price}</Text>
-      <TouchableOpacity style={styles.button} onPress={()=>removeFromCart(item.id)}>
-      <Entypo name="minus" size={18} color="white" />
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => removeFromCart(item.id)}
+        >
+          <Entypo name="minus" size={18} color="white" />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 15,
     marginHorizontal: 5,
-    color: COLORS.primaryOrangeHex
+    color: COLORS.primaryOrangeHex,
   },
   delete: {
     fontWeight: "bold",
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 18,
     fontWeight: "600",
-    color: COLORS.primaryLightGreyHex
+    color: COLORS.primaryLightGreyHex,
   },
   flex: {
     flexDirection: "row",
@@ -95,5 +95,5 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 17,
     fontWeight: "bold",
-  }
+  },
 });

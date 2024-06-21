@@ -4,11 +4,18 @@ import { Entypo } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 import { COLORS } from "../theme";
 import { useNavigation } from "@react-navigation/native";
+
 const FeaturedCard = ({ item, index }) => {
-  const navigation = useNavigation()
+
+  const navigation = useNavigation();
+  
   return (
-    <TouchableOpacity key={index} style={styles.container} onPress={()=> navigation.navigate('FeaturedDeatils', {...item})}>
-      <Image style={styles.image} source={ item.image } />
+    <TouchableOpacity
+      key={index}
+      style={styles.container}
+      onPress={() => navigation.navigate("FeaturedDeatils", { ...item })}
+    >
+      <Image style={styles.image} source={item.image} />
       <View style={styles.item}>
         <Text style={styles.itemName}>{item.name}</Text>
         <View style={styles.reviewContainer}>

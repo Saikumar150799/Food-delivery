@@ -8,8 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { COLORS } from "../theme";
-import { restaurants } from "../data";
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 import Restaurant from "../components/Restaurant";
@@ -18,7 +17,7 @@ import Featured from "../components/Featured";
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator ={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <View style={styles.searchContainer}>
             <Ionicons
@@ -40,6 +39,7 @@ const HomeScreen = () => {
         <Restaurant />
 
         <Featured />
+        
       </ScrollView>
     </SafeAreaView>
   );
