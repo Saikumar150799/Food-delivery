@@ -9,8 +9,13 @@ import {
 import React from "react";
 import { Entypo } from "@expo/vector-icons";
 import { COLORS } from "../theme";
+import { useCartStore } from "../store";
 
 const DishCard = ({ dish }) => {
+  const {addToCart, removeFromCart} = useCartStore((state) => state);
+
+  const quantity = useCartStore((state) => state.cart.find((item) => item.id === dish.id)?.quantity || 0);
+
   return (
     <View style={styles.container}>
       <Image
@@ -23,13 +28,14 @@ const DishCard = ({ dish }) => {
           <Text style={styles.dishDescription}>{dish.description}</Text>
         </View>
         <View style={styles.quantityContainer}>
-          <Text style={styles.price}>{dish.price}</Text>
+          <Text style={styles.price}>${dish.price}</Text>
           <View style={styles.buttons}>
-            <TouchableOpacity style={styles.button}>
+            
+            <TouchableOpacity style={styles.button} onPress={()=>addToCart(dish)}>
               <Entypo name="plus" size={20} color="white" />
             </TouchableOpacity>
-            <Text style={styles.quantity}>4</Text>
-            <TouchableOpacity style={styles.button}>
+            <Text style={styles.quantity}>{quantity}</Text>
+            <TouchableOpacity style={styles.button} onPress={()=>removeFromCart(dish.id)} disabled={quantity <= 0}>
               <Entypo name="minus" size={20} color="white" />
             </TouchableOpacity>
           </View>
@@ -73,6 +79,7 @@ const styles = StyleSheet.create({
   buttons: {
     flexDirection: "row",
     alignItems: "center",
+    // gap:10,
   },
   button: {
     backgroundColor: COLORS.primaryOrangeHex,

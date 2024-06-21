@@ -44,8 +44,7 @@ export const featured = [
     rating: 5,
     review: 4.5,
     type: "Chicken",
-    nearBy: 154
-
+    nearBy: 154,
   },
   {
     name: "Snacks",
@@ -54,7 +53,7 @@ export const featured = [
     rating: 2,
     review: 2.3,
     type: "fastfood",
-    nearBy: 20
+    nearBy: 20,
   },
   {
     name: "Pizza",
@@ -63,7 +62,7 @@ export const featured = [
     rating: 4,
     review: 4.1,
     type: "fastfood",
-    nearBy: 60
+    nearBy: 60,
   },
   {
     name: "Burger",
@@ -72,7 +71,7 @@ export const featured = [
     rating: 3,
     review: 3.3,
     type: "Burger",
-    nearBy: 15
+    nearBy: 15,
   },
   {
     name: "Pizza",
@@ -81,7 +80,7 @@ export const featured = [
     rating: 2,
     review: 2.9,
     type: "fastfood",
-    nearBy: 45
+    nearBy: 45,
   },
 ];
 
@@ -95,7 +94,7 @@ export const iceCreams = [
     available: true,
     type: "vanilla",
     allergens: ["dairy"],
-    image: require("./assets/icecreams/Homemade-Vanilla.png.webp")
+    image: require("./assets/icecreams/Homemade-Vanilla.png.webp"),
   },
   {
     name: "Chocolate",
@@ -106,7 +105,7 @@ export const iceCreams = [
     available: true,
     type: "chocolate",
     allergens: ["dairy"],
-    image: require("./assets/icecreams/chocolate.webp")
+    image: require("./assets/icecreams/chocolate.webp"),
   },
   {
     name: "Strawberry",
@@ -117,7 +116,7 @@ export const iceCreams = [
     available: true,
     type: "strawberry",
     allergens: ["dairy"],
-    image: require("./assets/icecreams/Strawberry.jpeg")
+    image: require("./assets/icecreams/Strawberry.jpeg"),
   },
   {
     name: "Mint Chocolate Chip",
@@ -128,7 +127,7 @@ export const iceCreams = [
     available: true,
     type: "mint",
     allergens: ["dairy"],
-    image: require("./assets/icecreams/mint-chocolate.jpeg")
+    image: require("./assets/icecreams/mint-chocolate.jpeg"),
   },
   {
     name: "Cookie Dough",
@@ -139,7 +138,7 @@ export const iceCreams = [
     available: true,
     type: "cookie • dough",
     allergens: ["dairy", "gluten"],
-    image: require("./assets/icecreams/cookie-dough.jpeg")
+    image: require("./assets/icecreams/cookie-dough.jpeg"),
   },
   {
     name: "Rocky Road",
@@ -150,7 +149,7 @@ export const iceCreams = [
     available: true,
     type: "chocolate • almond",
     allergens: ["dairy", "nuts"],
-    image: require("./assets/icecreams/christmas-rocky-road.jpeg")
+    image: require("./assets/icecreams/christmas-rocky-road.jpeg"),
   },
   {
     name: "Pistachio",
@@ -161,7 +160,7 @@ export const iceCreams = [
     available: true,
     type: "pistachio",
     allergens: ["dairy", "nuts"],
-    image: require("./assets/icecreams/Pistachio-Ice-Cream.jpeg")
+    image: require("./assets/icecreams/Pistachio-Ice-Cream.jpeg"),
   },
   {
     name: "Salted Caramel",
@@ -172,7 +171,7 @@ export const iceCreams = [
     available: true,
     type: "caramel",
     allergens: ["dairy"],
-    image: require("./assets/icecreams/Salted_Caramel_Ice_Cream.webp")
+    image: require("./assets/icecreams/Salted_Caramel_Ice_Cream.webp"),
   },
   {
     name: "Mango Sorbet",
@@ -183,115 +182,123 @@ export const iceCreams = [
     available: true,
     type: "mango",
     allergens: [],
-    image: require("./assets/icecreams/Mango.jpeg")
+    image: require("./assets/icecreams/Mango.jpeg"),
   },
 ];
 
 export const dishes = [
   {
     name: "Pizza",
-    description: "Classic Italian pizza topped with fresh mozzarella and tomato sauce.",
+    description:
+      "Classic Italian pizza topped with fresh mozzarella and tomato sauce.",
     id: 1,
-    price: "$10",
-    image: require("./assets/dishes/dish-1.jpeg")
+    price: 10,
+    image: require("./assets/dishes/dish-1.jpeg"),
   },
   {
     name: "Roti's",
     description: "Soft and fluffy Indian flatbread, perfect for any curry.",
     id: 2,
-    price: "$30",
-    image: require("./assets/dishes/dish-2.jpeg")
+    price: 30,
+    image: require("./assets/dishes/dish-2.jpeg"),
   },
   {
     name: "Chicken",
     description: "Juicy grilled chicken seasoned with a blend of spices.",
     id: 3,
-    price: "$80",
-    image: require("./assets/dishes/dish-3.jpeg")
+    price: 80,
+    image: require("./assets/dishes/dish-3.jpeg"),
   },
   {
     name: "Curry",
-    description: "A rich and flavorful curry with tender pieces of meat and vegetables.",
+    description:
+      "A rich and flavorful curry with tender pieces of meat and vegetables.",
     id: 4,
-    price: "$99",
-    image: require("./assets/dishes/dish-4.jpeg")
+    price: 99,
+    image: require("./assets/dishes/dish-4.jpeg"),
   },
   {
     name: "Samosa",
     description: "Crispy pastry filled with spicy potatoes and peas.",
     id: 5,
-    price: "$36",
-    image: require("./assets/dishes/dish-5.jpeg")
+    price: 36,
+    image: require("./assets/dishes/dish-5.jpeg"),
   },
   {
     name: "Uttappa",
-    description: "South Indian pancake topped with onions, tomatoes, and chilies.",
+    description:
+      "South Indian pancake topped with onions, tomatoes, and chilies.",
     id: 6,
-    price: "$77",
-    image: require("./assets/dishes/dish-6.jpeg")
+    price: 77,
+    image: require("./assets/dishes/dish-6.jpeg"),
   },
   {
     name: "Pasta",
-    description: "Pasta cooked to perfection and tossed in a creamy Alfredo sauce.",
+    description:
+      "Pasta cooked to perfection and tossed in a creamy Alfredo sauce.",
     id: 7,
-    price: "$10",
-    image: require("./assets/dishes/dish-7.jpeg")
+    price: 10,
+    image: require("./assets/dishes/dish-7.jpeg"),
   },
   {
     name: "Fish",
     description: "Grilled fish fillet served with a lemon butter sauce.",
     id: 8,
-    price: "$40",
-    image: require("./assets/dishes/dish-8.jpeg")
+    price: 40,
+    image: require("./assets/dishes/dish-8.jpeg"),
   },
   {
     name: "Noodles",
-    description: "Stir-fried noodles with vegetables and your choice of protein.",
+    description:
+      "Stir-fried noodles with vegetables and your choice of protein.",
     id: 9,
-    price: "$65",
-    image: require("./assets/dishes/dish-9.jpeg")
+    price: 65,
+    image: require("./assets/dishes/dish-9.jpeg"),
   },
   {
     name: "Fried Rice",
-    description: "Classic fried rice with eggs, vegetables, and a hint of soy sauce.",
+    description:
+      "Classic fried rice with eggs, vegetables, and a hint of soy sauce.",
     id: 10,
-    price: "$80",
-    image: require("./assets/dishes/dish-10.jpeg")
+    price: 80,
+    image: require("./assets/dishes/dish-10.jpeg"),
   },
   {
     name: "White Rice",
     description: "Steamed white rice, fluffy and perfect as a side dish.",
     id: 11,
-    price: "$20",
-    image: require("./assets/dishes/dish-11.jpeg")
+    price: 20,
+    image: require("./assets/dishes/dish-11.jpeg"),
   },
   {
     name: "Chicken",
     description: "Succulent roasted chicken with herbs and garlic.",
     id: 12,
-    price: "$35",
-    image: require("./assets/dishes/dish-12.jpeg")
+    price: 35,
+    image: require("./assets/dishes/dish-12.jpeg"),
   },
   {
     name: "Burger",
-    description: "Juicy beef burger with lettuce, tomato, and cheese in a toasted bun.",
+    description:
+      "Juicy beef burger with lettuce, tomato, and cheese in a toasted bun.",
     id: 13,
-    price: "$10",
-    image: require("./assets/dishes/dish-13.jpeg")
+    price: 10,
+    image: require("./assets/dishes/dish-13.jpeg"),
   },
   {
     name: "Pizza",
     description: "Delicious pizza topped with pepperoni and extra cheese.",
     id: 14,
-    price: "$50",
-    image: require("./assets/dishes/dish-14.jpeg")
+    price: 50,
+    image: require("./assets/dishes/dish-14.jpeg"),
   },
   {
     name: "Chicken Roll",
-    description: "Spicy chicken roll wrapped in a soft tortilla with fresh veggies.",
+    description:
+      "Spicy chicken roll wrapped in a soft tortilla with fresh veggies.",
     id: 15,
-    price: "$35",
-    image: require("./assets/dishes/dish-15.jpeg")
+    price: 35,
+    image: require("./assets/dishes/dish-15.jpeg"),
   },
 ];
 
@@ -301,46 +308,44 @@ export const coolDrinks = [
     id: 1,
     nearBy: "50",
     rating: 4.5,
-    price: "$3.50",
+    price: 3.0,
     type: "cola",
-    image: require("./assets/drinks/cola.jpeg")
+    image: require("./assets/drinks/cola.jpeg"),
   },
   {
     name: "Pepsi",
     id: 2,
     nearBy: "20",
     rating: 4.0,
-    price: "$1.50",
+    price: 1.0,
     type: "pepsi",
-    image: require("./assets/drinks/pepsi.jpeg")
+    image: require("./assets/drinks/pepsi.jpeg"),
   },
   {
     name: "Lemonade",
     id: 3,
     nearBy: "30",
     rating: 4.2,
-    price: "$1.75",
+    price: 1.5,
     type: "lemon",
-    image: require("./assets/drinks/Lemonade.jpeg")
+    image: require("./assets/drinks/Lemonade.jpeg"),
   },
   {
     name: "Orange Soda",
     id: 4,
     nearBy: "40",
     rating: 4.1,
-    price: "$1.40",
+    price: 1.0,
     type: "orange",
-    image: require("./assets/drinks/Orange.jpeg")
+    image: require("./assets/drinks/Orange.jpeg"),
   },
   {
     name: "Thums up",
     id: 5,
     nearBy: "60",
     rating: 4.3,
-    price: "$1.60",
+    price: 1.0,
     type: "thums up",
-    image: require("./assets/drinks/thums-up.avif")
-  }
+    image: require("./assets/drinks/thums-up.avif"),
+  },
 ];
-
-

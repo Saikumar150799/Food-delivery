@@ -2,17 +2,25 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Entypo } from "@expo/vector-icons";
 import { COLORS } from "../theme";
+import { useCartStore } from "../store";
+import { useNavigation } from "@react-navigation/native";
+import { useEffect } from "react";
 
 const CartItemCard = ({ item }) => {
+  const navigation = useNavigation();
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const cartTotal = useCartStore((state) => state.cartTotal());
+
   return (
     <View style={styles.container}>
       <View style={styles.item}>
+        <Text style={styles.quantity}>{item.quantity} x</Text>
         <Image style={styles.image} source={item.image} />
         <Text style={styles.name}>{item.name}</Text>
       </View>
       <View style={styles.flex}>
-        <Text style={styles.price}>$78</Text>
-      <TouchableOpacity style={styles.button}>
+        <Text style={styles.price}>${item.price}</Text>
+      <TouchableOpacity style={styles.button} onPress={()=>removeFromCart(item.id)}>
       <Entypo name="minus" size={18} color="white" />
       </TouchableOpacity>
       </View>
@@ -60,8 +68,9 @@ const styles = StyleSheet.create({
   },
   quantity: {
     fontWeight: "bold",
-    fontSize: 18,
-    marginHorizontal: 10,
+    fontSize: 15,
+    marginHorizontal: 5,
+    color: COLORS.primaryOrangeHex
   },
   delete: {
     fontWeight: "bold",

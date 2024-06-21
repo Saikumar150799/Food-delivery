@@ -17,11 +17,25 @@ import { dishes } from "../data";
 import DishCard from "../components/DishCard";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useCartStore } from "../store";
+import { useEffect } from "react";
+import Animated, { useSharedValue, withTiming } from "react-native-reanimated";
 const FeaturedDeatils = () => {
   const navigation = useNavigation();
   const { params } = useRoute();
 
   const item = params;
+  const viewCartBtnWidth = useSharedValue(0);
+  const cart = useCartStore((state) => state.cart);
+  const cartLength = useCartStore((state) => state.cartLength());
+  const cartTotal = useCartStore((state) => state.cartTotal());
+  const clearCart = useCartStore((state) => state.clearCart);
+
+  useEffect(() => {
+    viewCartBtnWidth.value = withTiming(cartTotal > 0 ? "100%" : 0, {
+      duration: 300,
+    });
+  }, [cartTotal]);
 
   return (
     <View style={styles.container}>
@@ -53,16 +67,28 @@ const FeaturedDeatils = () => {
         </View>
 
         <Text style={styles.subTitle}>Hot and spicy</Text>
-
-        <Text style={styles.menu}>Menu</Text>
-
-        <TouchableOpacity style={styles.viewCartContainer} onPress={()=> navigation.navigate('Cart')}>
-          <View style={styles.quantityContainer}>
-            <Text style={styles.quantity}>5</Text>
-          </View>
-          <Text style={styles.viewCart}>View cart</Text>
-          <Text style={styles.total}>$30</Text>
-        </TouchableOpacity>
+        <View style={styles.menuContainer}>
+          <Text style={styles.menu}>Menu</Text>
+          {cartLength > 0 && (
+            <TouchableOpacity onPress={() => clearCart()}>
+              <Text style={styles.clearCart}>Clear cart</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+        <Animated.View
+          style={[styles.viewCartContainer, { width: viewCartBtnWidth }]}
+        >
+          <TouchableOpacity
+            style={styles.viewCartBtn}
+            onPress={() => navigation.navigate("Cart")}
+          >
+            <View style={styles.quantityContainer}>
+              <Text style={styles.quantity}>{cartLength}</Text>
+            </View>
+            <Text style={styles.viewCart}>View cart</Text>
+            <Text style={styles.total}>${cartTotal}</Text>
+          </TouchableOpacity>
+        </Animated.View>
 
         <ScrollView showsVerticalScrollIndicator={false}>
           {dishes.map((dish, index) => {
@@ -138,19 +164,21 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     padding: 5,
   },
-  viewCartContainer: {
-    position: "absolute",
-    marginHorizontal: 10,
-    bottom: 20,
+  viewCartBtn: {
     backgroundColor: COLORS.primaryOrangeHex,
-    zIndex: 100,
-    width: "100%",
     flexDirection: "row",
     alignItems: "center",
     height: 60,
     justifyContent: "space-between",
     borderRadius: 40,
     padding: 10,
+  },
+  viewCartContainer: {
+    overflow: "hidden",
+    zIndex: 100,
+    position: "absolute",
+    bottom: 20,
+    marginHorizontal: 10,
   },
   quantityContainer: {
     color: "white",
@@ -179,5 +207,20 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginRight: 20,
+  },
+  menuContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginVertical: 5,
+  },
+  clearCart: {
+    color: COLORS.primaryOrangeHex,
+    fontSize: 15,
+    fontWeight: "bold",
+    borderWidth: 1,
+    borderColor: COLORS.primaryOrangeHex,
+    padding: 5,
+    borderRadius: 5,
   },
 });

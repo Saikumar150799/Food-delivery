@@ -13,8 +13,25 @@ import CartItemCard from "../components/CartItemCard";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import { useCartStore } from "../store";
+import { useEffect } from "react";
+
 const CartScreen = () => {
+  
   const navigation = useNavigation();
+
+  const cart = useCartStore((state) => state.cart);
+
+  const cartTotal = useCartStore((state) => state.cartTotal());
+
+  const deliveryFee = (cartTotal / 100) * 10;
+
+  useEffect(() => {
+    if (cartTotal === 0) {
+      navigation.goBack();
+    }
+  }, [cartTotal]);
+
   return (
     <>
       <SafeAreaView>
@@ -45,7 +62,7 @@ const CartScreen = () => {
 
       <ScrollView>
         <View style={styles.cardContainer}>
-          {dishes.map((dish, index) => (
+          {cart.map((dish, index) => (
             <CartItemCard key={index} item={dish} />
           ))}
         </View>
@@ -54,15 +71,15 @@ const CartScreen = () => {
       <View style={styles.cartTotoalContainer}>
         <View style={[styles.flex, styles.marginBottom10]}>
           <Text style={styles.font16}>Subtotal</Text>
-          <Text style={styles.font16}>$16</Text>
+          <Text style={styles.font16}>${cartTotal}</Text>
         </View>
         <View style={[styles.flex, styles.marginBottom10]}>
           <Text style={styles.font16}>Delivery Fee</Text>
-          <Text style={styles.font16}>$16</Text>
+          <Text style={styles.font16}>${deliveryFee}</Text>
         </View>
         <View style={[styles.flex, styles.marginBottom10]}>
           <Text style={styles.orderTotal}>Order Total</Text>
-          <Text style={styles.orderTotal}>$16</Text>
+          <Text style={styles.orderTotal}>${cartTotal + deliveryFee}</Text>
         </View>
 
         <TouchableOpacity
@@ -159,6 +176,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: 18,
-    letterSpacing: .5,
+    letterSpacing: 0.5,
   },
 });
